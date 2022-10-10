@@ -16,4 +16,4 @@ jobs:
       - run: echo "$" > "$HOME/.ssh/id_rsa"
       - run: chmod 600 "$HOME/.ssh/id_rsa"
       # Deploy
-      - run: rsync -e "ssh -p 20022 -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete . root@94.228.123.185:/home/root/regular_scripts
+      - run: rsync -e "ssh -p 20022 -i $HOME/.ssh/id_rsa -o StrictHostKeyChecking=no" --archive --compress --delete . root@94.228.123.185:/home/root/regular_scripts
