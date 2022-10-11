@@ -17,22 +17,5 @@ jobs:
   deploy-via-sftp:
     runs-on: ubuntu-latest
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-          
-      - name: SFTP Deploy
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.1
-        with:
-          username: root
-          server: 94.228.123.185
-          port: 22 # default is 22
-          ssh_private_key: ${{ secrets.key }}
- 
-          
-          # will put all file under this path
-          local_path: ./* # default is ./*
-          # files will copy to under remote_path
-          remote_path: /var/www/1
-          
-          # sftp args
-          args: '-o ConnectTimeout=5'
+      - name: send email
+        run: python ./send_email.py
